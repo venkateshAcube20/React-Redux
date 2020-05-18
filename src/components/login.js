@@ -21,15 +21,18 @@ class ModalLoginForm extends React.Component {
   onClick=async()=>{
     if(this.state.username=="" || this.state.password==""){
       alert("Please enter username or password")
-    }else{
+    }else if(this.state.username=="admin" || this.state.password=="admin"){
       await this.props.useraction.loginUser(this.state.username, this.state.password) 
+  } else {
+    alert("Please enter correct Details")
   }
 }
 
 componentDidUpdate=()=>{
     
   let data = this.props.getUserData
-   if(data.users="admin"){
+ 
+   if(data.users=="admin"){
      this.props.history.push('/home')
   }    
 }
@@ -62,6 +65,7 @@ componentDidUpdate=()=>{
         >
           Sign In
         </button>
+        <p>Please enter username and password as admin and admin</p>
       </div>
       </div>
     );

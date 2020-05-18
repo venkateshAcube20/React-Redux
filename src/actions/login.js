@@ -25,7 +25,7 @@ export const loginUser =(userName, password)=>{
         console.log(userName, password)
      try{
             dispatch(loginUserRequest())
-            dispatch(loginUserSuccess(userName))        
+            dispatch(loginUserSuccess(userName, password))        
      }       
        catch(err){
                 console.log("------err----------", err.message);
