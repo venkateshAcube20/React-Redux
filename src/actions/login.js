@@ -1,4 +1,5 @@
 import * as types from '../constants/login.js'
+import {push} from "react-router-redux"
 
 export const loginUserRequest = ()=>{
     return { 
@@ -20,12 +21,13 @@ export const loginUserFailure = (err)=>{
     }
 }
 
-export const loginUser =(userName, password)=>{
+export const loginUser =async (userName, password)=>{
     return async function(dispatch){
-        console.log(userName, password)
-     try{
+         try{
+
             dispatch(loginUserRequest())
-            dispatch(loginUserSuccess(userName, password))        
+    
+            dispatch(loginUserSuccess(userName))        
      }       
        catch(err){
                 console.log("------err----------", err.message);
